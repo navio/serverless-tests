@@ -27,7 +27,7 @@
   document.getElementById('LoginWithAmazon').onclick = function() {
     options = { scope : 'profile audible:catalog_read audible:content_read audible:annotations audible:library_read audible:browse_read' };
     options.response_type='code';
-		amazon.Login.authorize(options, 'https://127.0.0.1:3443/response');
+		amazon.Login.authorize(options, 'https://navio.github.io/serverless-tests');
     return false;
   };
 
