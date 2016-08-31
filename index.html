@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Sign In</title>
+	</head>
+	<body>
+		<a href="#" id="LoginWithAmazon">
+  <img border="0" alt="Login with Amazon"
+    src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+    width="156" height="32" />
+</a>
+		<div id="amazon-root"></div>
+			<script type="text/javascript">
+				window.onAmazonLoginReady = function() {
+				amazon.Login.setClientId('amzn1.application-oa2-client.d7ce99f33149443cbf4b84f01a13e743');
+				};
+				(function(d) {
+				var a = d.createElement('script'); a.type = 'text/javascript';
+				a.async = true; a.id = 'amazon-login-sdk';
+				a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+				d.getElementById('amazon-root').appendChild(a);
+				})(document);
+			</script>
+			<script type="text/javascript">
+
+  document.getElementById('LoginWithAmazon').onclick = function() {
+    options = { scope : 'profile audible:catalog_read audible:content_read audible:annotations audible:library_read audible:browse_read' };
+    options.response_type='code';
+		amazon.Login.authorize(options, 'https://127.0.0.1:3443/response');
+    return false;
+  };
+
+</script>
+<a href="#" class="test" id="Logout">LogOut</a>
+<script type="text/javascript">
+  document.getElementById('Logout').onclick = function() { console.log('hit')
+    amazon.Login.logout(); };
+</script>
+<script src="browser.js"></script>
+Hello ->
+	</body>
+</html>
+
